@@ -17,3 +17,8 @@ def main( ):
         print("Obese")
 
 main( )
+
+# output
+# Enter the Weight(Kg):  78
+# Enter the Height(Cm): 181
+# Normal Weight  23.808797045267237
