@@ -7,3 +7,6 @@ def main( ):
         print("Age is ",age(num))
 main( )
 
+# output
+# Enter the year of  birth: 22
+# Age is  2004
