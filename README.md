@@ -11,8 +11,3 @@ A collection of Python scripts and core programming concepts.
 * **`functions.py`** - Function definitions and arguments.
 * **`data_structures.py`** - Working with lists, dictionaries, tuples, and sets.
 
----
-mm
-mm
-mm
-mm
