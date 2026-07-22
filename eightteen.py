@@ -51,14 +51,41 @@ def search_task():
     ''',(task_id,))
     task = cursor.fetchone()
     if task:
-        print("task found 😍")
+        print("task found ")
         print(f"task {task[0]} - {task[1]}")
         
     else:
-        print("no such task 😒")
+        print("no such task ")
 
+def update_task():
+    conn = sqlite3.connect("demo.db")
+    cursor = conn.cursor()
+    td = int(input("Enter the task id :- "))
+    tname = input("Enter the task name :- ")
+    tdes= input("Enter task des :- ")
+    cursor.execute(
+        """
+        UPDATE tasks SET name = ? ,des = ? WHERE id = ?
+        """, (tname,tdes,td)
+    )
+    conn.commit()
+    print("Task Completed")
 
-
+def delete_task():
+    conn = sqlite3.connect("demo.db")
+    cursor = conn.cursor()
+    tid = int(input("Enter the task id :- "))
+    ch = input("Are you Sure you want to delete Y/N :-").lower()
+    if ch == "y":
+        cursor.execute(
+            """
+            DELETE FROM tasks WHERE id = ?
+            """,(tid,)
+        )
+        conn.commit()
+        print("Task Deleted ")
+    else:
+        print("Task Not Deleted")
 
 
 def main():
@@ -67,10 +94,16 @@ def main():
         ch = int(input("1.add task\n2.view task\n3.search tasks\n4.update tasks\n5.delete tasks\n6.exit \n: -"))
         if ch == 1:
             addtasks()
-        if ch == 2:
+        elif ch == 2:
             viewtask()
-        if ch == 3:
+        elif ch == 3:
             search_task()
+        elif ch == 4:
+            update_task()
+        elif ch == 5:
+            delete_task()
+        elif ch == 6:
+            break
         else:
             print("invalid input")
 
@@ -81,3 +114,4 @@ main()
 # neeed to add 
 # needed to view
 # needed to search
+
